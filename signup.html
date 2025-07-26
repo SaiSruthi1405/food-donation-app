@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - NourishAll</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Playfair+Display:wght@500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+  --brand-orange: #e1582e;
+  --light-bg: #fceee6;
+  --blue-bg: rgb(220, 239, 243);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  /background: linear-gradient(to right, var(--blue-bg), var(--light-bg))/
+  background: rgb(220, 239, 243);
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+
+.side-img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.form-box {
+  display: flex;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  width: 800px;
+  
+  overflow: hidden;
+}
+
+.form-left {
+  flex: 1;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+}
+
+
+
+
+.form-right {
+  flex: 1;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-right h2 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 25px;
+  color: #e1582e;
+}
+
+.form-box form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-box input {
+  
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.form-box button {
+  padding: 10px;
+  background-color: #190848;
+  color: white;
+  font-size: 15px;
+  border: none;
+  border-radius: 0px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.form-box button:hover {
+  background-color: #c94d24;
+}
+
+.input-icon {
+  position: relative;
+  margin-bottom: 18px;
+  
+}
+
+.input-icon i {
+  position: absolute;
+  top: 40%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #3d3c3c;
+  font-size: 16px;
+  align-items: center;
+}
+
+.input-icon input {
+  width: 100%;
+  padding: 10px 10px 10px 38px; /* left space for icon */
+  border: none;
+  border-bottom: 2px solid #ccc;
+  background: transparent;
+  font-size: 15px;
+  color: #333;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input {
+  border-radius: 0 !important;
+  margin-bottom: 5px !important;
+}
+
+
+.input-icon input:focus {
+  border-bottom: 2px solid #190848; /* highlight on focus */
+}
+
+@media (max-width: 768px) {
+  .form-box {
+    flex-direction: column;
+    width: 100%;
+    max-width: 95%;
+    height: auto;
+    gap: 1rem;
+  }
+
+  .side-img {
+    max-width: 240px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 1rem;
+  }
+
+  .form-left {
+    width: 100%;
+    height: auto;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    order: -1;
+  }
+
+  .form-right {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .form-right h2 {
+    font-size: 1.5rem;
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    
+    
+<div class="form-box">
+  <div class="form-left">
+    <img src="https://media.istockphoto.com/id/1622450559/vector/humanitarian-aid-charity-concept.jpg?s=612x612&w=0&k=20&c=AQKOMGZFVGJBx_swY2gyQtoFEOQob9rwTItxL3FKqVs=" alt="Left Art" class="side-img left-img"  />
+  </div>
+  <div class="form-right">
+    <h2>NEW ACCOUNT?</h2>
+    <form id="signupForm">
+      <div class="input-icon">
+        <i class="fas fa-user"></i>
+        <input type="text" placeholder="Username" required />
+      </div>
+      <div class="input-icon">
+        <i class="fas fa-phone"></i>
+        <input type="tel" placeholder="Phone Number" required />
+      </div>
+      <div class="input-icon">
+        <i class="fas fa-envelope"></i>
+        <input type="email" placeholder="Mail" required />
+      </div>
+      <div class="input-icon">
+        <i class="fas fa-lock"></i>
+        <input type="password" id="password" placeholder="Password" required />
+      </div>
+      <div class="input-icon">
+        <i class="fas fa-lock"></i>
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
+      </div>
+      <button type="submit">REGISTER</button>
+
+    </form>
+  </div>
+</div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('signupForm');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); // stop form submission
+
+      const inputs = form.querySelectorAll('input');
+      let allFilled = true;
+
+      inputs.forEach(input => {
+        if (!input.value.trim()) {
+          allFilled = false;
+        }
+      });
+
+      const password = document.getElementById('password').value.trim();
+      const confirmPassword = document.getElementById('confirmPassword').value.trim();
+
+      if (!allFilled) {
+        alert('Please fill in all fields before registering.');
+      } else if (password !== confirmPassword) {
+        alert('Passwords do not match. Please try again.');
+      } else {
+        // Redirect to donor page in new tab
+        window.open('donor1.html', '_blank');
+      }
+    });
+  });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+
+/* Donate Section */
+.donate-section {
+  padding: 40px 20px;
+  box-shadow: #190848;
+  /* background-color: rgb(220, 239, 243); 
+  background-color: #fceee6; */
+  /* background: linear-gradient(to right, rgb(220, 239, 243), #fceee6); */
+  /* background: radial-gradient(circle, rgb(220, 239, 243), #fceee6); */
+  background: conic-gradient(from 0deg, rgb(220, 239, 243), #fceee6, rgb(220, 239, 243));
+
+
+
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  /* border: 3px solid #250d67;*/
+  box-shadow: #e1582e;
+  border-radius: 10px;
+}
+
+.form-container {
+  background: white;
+  padding: 30px;
+  border-radius: 13px;
+  /* box-shadow: 0 0 16px rgba(176, 224, 230, 0.7); */
+
+ 
+}
+
+
+
+.form-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-header h1 {
+  margin: 10px 0 5px;
+  color: #333;
+}
+
+.form-header p {
+  color: #666;
+}
+
+.form-icon {
+  font-size: 40px;
+  color: #190848;
+}
+
+/* Form Elements */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size:medium;
+  margin-bottom: 5px;
+  color: #190848;
+}
+
+input[type="text"],
+input[type="tel"],
+textarea,
+select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  resize: vertical;
+}
+
+
+/* Orphanage Grid */
+.orphanage-selection {
+  margin-top: 20px;
+  display: none;
+}
+
+.orphanage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 15px;
+  margin-top: 10px;
+}
+
+
+
+/* Button */
+.btn {
+  padding: 12px 20px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-primary {
+  background-color:#190848;
+  color: white;
+  border-radius: 6px;
+  box-shadow: none;
+  font-size: 16px;
+}
+
+.btn-primary:hover {
+  background-color: #cb512c;
+}
+
+.btn-secondary {
+  background-color: #ddd;
+  color: #333;
+  border-radius: 6px;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* Modals */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.modal-icon i {
+  font-size: 40px;
+  color: #4caf50;
+  margin-bottom: 10px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+  }
+
+  .donation-type-options {
+    flex-direction: column;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+}
+

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wall of Donors</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet"  href="wallOfDonor.css"/>
+    <link rel="stylesheet" href="index.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Honk&family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body style="background-color:#fdf6f3">
+
+  <!-- ===== NAVBAR ===== -->
+    <nav style="background-color: #190848;"class="main-navbar">
+    <div style=" font-family:'Outfit', sans-serif; font-size: 2rem;" class="logo">NourishAll</div>
+    <div class="nav-links">
+      <a href="./index.html">Home</a>
+      <a href="./about2.html">About Us</a>
+      <a href="./contact.html">Contact</a>
+      <a href="#" onclick="openLoginModal(); return false;">Login</a> 
+    </div>
+  </nav>
+
+  <!-- ===== DONOR WALL SECTION ===== -->
+  <section class="donor-wall">
+    <div class="donor-header">
+      <h2>Wall of Donors 🌟</h2>
+      <p>Your generosity brings nourishment and hope to many.</p>
+    </div>
+
+    <div class="donor-grid">
+      <div class="donor-card">
+         <div class="image-wrapper">
+        <img src="./assets/wall1.png" alt="Donor 1">
+        </div>
+        <h3>Ellen Richard</h3>
+        <p><strong>Donation:</strong> 100 meals</p>
+        <p><strong>Location:</strong> Hyderabad, Telangana</p>
+        <p><strong>Date:</strong> 6 July 2025</p>
+        <blockquote style="text-align:left;">"Proud to feed a few more smiles!"</blockquote>
+      </div>
+
+      <div class="donor-card">
+        <div class="image-wrapper">
+        <img style="height: 110%;" src="./assets/rwall2.png" alt="Donor 2">
+          </div>
+        <h3>Ravali Mehta</h3>
+        <p><strong>Donation:</strong> ₹20,000</p>
+        <p><strong>Location:</strong> Bengaluru, Karnataka</p>
+        <p><strong>Date:</strong> 4 July 2025</p>
+        <blockquote>"Every bit counts.Gratefull!!"</blockquote>
+      </div>
+
+      <div class="donor-card">
+        <div class="image-wrapper">
+        <img style="width:115%;height:auto;" src="./assets/rwall3.png" alt="Donor 3">
+        </div>
+        <h3>Sneha Verma</h3>
+        <p><strong>Donation:</strong> Food</p>
+        <p><strong>Location:</strong> Hyderabad, Telangana</p>
+        <p><strong>Date:</strong> 5 May 2025</p>
+        <blockquote style="text-align:left;">"Inspire change, atleast one meal"</blockquote>
+      </div>
+      <!-- More cards can be added below -->
+        <div class="donor-card">
+      <div class="image-wrapper">
+        <img src="./assets/rwall4.png" alt="Donor 4">
+      </div>
+      <h3>John Doe</h3>
+      <p><strong>Donation:</strong> ₹10,000</p>
+      <p><strong>Location:</strong> Delhi</p>
+      <p><strong>Date:</strong> 1 May 2025</p>
+      <blockquote>"Helping is healing."</blockquote>
+    </div>
+
+    <div class="donor-card">
+      <div class="image-wrapper">
+        <img src="./assets/rwall5.png" alt="Donor 5">
+      </div>
+      <h3>Jane Smith</h3>
+      <p><strong>Donation:</strong> Groceries</p>
+      <p><strong>Location:</strong> Mumbai</p>
+      <p><strong>Date:</strong> 3 May 2025</p>
+      <blockquote>"Do good, feel good."</blockquote>
+    </div>
+
+    <div class="donor-card">
+      <div class="image-wrapper">
+        <img src="./assets/rwall6.png" alt="Donor 6">
+      </div>
+      <h3>Arjun Das</h3>
+      <p><strong>Donation:</strong> Cooked meals</p>
+      <p><strong>Location:</strong> Chennai</p>
+      <p><strong>Date:</strong> 2 May 2025</p>
+      <blockquote>"We rise by lifting others."</blockquote>
+    </div>
+  </div>
+</div>
+  </section>
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close-button" onclick="closeLoginModal()">&times;</span>
+    <div class="form-header">
+      <h2>Login</h2>
+    </div>
+    <form>
+      <div class="form-group">
+        <label for="loginEmail">Email or Username</label>
+        <input type="text" id="loginEmail" name="loginEmail" required />
+      </div>
+      <div class="form-group">
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" name="loginPassword" required />
+      </div>
+      <button type="submit" class="btn btn-primary btn-full">Login</button>
+    </form>
+    <p style="margin-top: 15px;">Don't have an account? <a href="./signup.html">Click Sign Up</a></p> 
+  </div>
+</div>
+<script>
+  function openLoginModal() {
+    document.getElementById("loginModal").style.display = "block";
+  }
+
+  function closeLoginModal() {
+    document.getElementById("loginModal").style.display = "none";
+  }
+
+  // Close the modal if clicked outside
+  window.onclick = function(event) {
+    const modal = document.getElementById("loginModal");
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+</script>
+
+</body>
+</html>

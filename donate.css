@@ -1,0 +1,118 @@
+:root {
+  --brand-orange: #e1582e;
+  --brand-blue: rgb(229, 241, 243);
+  --dark-purple: #190848;
+}
+
+body {
+  background-color: var(--brand-blue);
+  font-family: 'Quicksand', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.donate-box {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 0px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+h2, h3 {
+  color: var(--brand-orange);
+  margin-bottom: 20px;
+}
+
+.donate-type {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+  border: 2px solid var(--brand-orange);
+  border-radius: 0px;
+  overflow: hidden;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.type-btn {
+  flex: 1;
+  padding: 6px 24px;
+  background-color: white;
+  border: none;
+  color: var(--brand-orange);
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+  white-space: nowrap;
+
+}
+
+.type-btn.active {
+  background-color: var(--brand-orange);
+  color: white;
+}
+
+.type-btn:not(:last-child) {
+  border-right: 2px solid var(--brand-orange);
+}
+
+
+.amount-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.amount-btn {
+  background-color: transparent;
+  border: 2px solid var(--dark-purple);
+  color: var(--dark-purple);
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.amount-btn:hover {
+  background-color: var(--dark-purple);
+  color: #fff;
+}
+
+.custom-amount {
+  width: 86%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  
+  font-size: 16px;
+}
+
+.custom-amount{
+    border-bottom:2px solid #ccc  !important;
+    border-radius: 0px !important;
+}
+
+.donate-submit {
+  background-color: #190848;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  width: 90%;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.donate-submit:hover {
+  background-color: #10052e;
+}

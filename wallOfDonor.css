@@ -1,0 +1,389 @@
+:root {
+  --brand-orange: #e1582e;
+  --brand-purple: #190848;
+  --color-text: #1B004B;
+  --color-primary: #fceee6;
+  --basic-blue:#d8e8ed;
+ }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  background:#fdf6f3;
+  color: #333;
+}
+
+
+    /* ===== HEADER ===== */
+    .main-navbar{
+  /* core layout */
+  display:flex;
+  flex-wrap:wrap;               /* ← let items wrap when space runs out */
+  justify-content:space-between;
+  align-items:center;
+
+  /* spacing & positioning */
+  padding:1rem 1.2rem;          /* a little narrower = more room */
+  width:100%;
+  position:absolute;
+  top:0; left:0;
+  background:(--brand-purple);
+  z-index:10;
+
+  box-sizing:border-box;        /* include padding in total width */
+}
+
+/* logo never breaks onto two lines */
+.logo{
+  font-weight:bold;
+  font-size:1.3rem;
+  color:#f2a477 !important;
+  white-space:nowrap;
+}
+
+/* container for the links */
+.nav-links{
+  display:flex;
+  flex-wrap:wrap;               /* ← links drop to new line if needed */
+  gap:1rem;                     /* cleaner than per‑link margin‑left */
+}
+
+/* individual links */
+.nav-links a{
+  text-decoration:none;
+  color:#fff;
+  font-weight:600;
+  font-size:1.2rem;
+  transition:color 0.3s;
+}
+.nav-links a:hover {
+  color: var(--brand-orange);      /* or any brand color for hover */
+}
+
+/* ───────────  SMALL‑SCREEN TWEAKS  ─────────── */
+@media (max-width:650px){
+  /* push the link row(s) below the logo and center them */
+  .nav-links{
+    flex:1 1 100%;              /* take full width on its own row */
+    justify-content:center;
+    margin-top:.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .logo {
+    font-size: 1.5rem !important;
+  }
+
+  .nav-links {
+    gap: 0.6rem;
+    margin-right: 1.5rem;
+  }
+
+  .nav-links a {
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+}
+
+    /* Add space to top to compensate for fixed navbar */
+    .donor-wall {
+      display:grid;
+      padding-top: 120px;
+    }
+
+    /* ===== Donor Wall Header Box ===== */
+    .donor-header {
+  background-color:  #190848;
+  color:white;
+  padding: 0.2rem 0.2rem;
+  border-radius: 80px 80px 0 0; /* Swapped left side */
+  max-width: 1200px;
+  width:100%;
+  margin: 0 auto 2rem;
+  text-align: center;
+  /*box-shadow: 0 10px 20px rgba(0,0,0,0.1);*/
+}
+
+    .donor-header h2 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .donor-header p {
+      font-size: 1.3rem;
+      color:white;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* ===== Donor Cards Grid ===== */
+    .donor-grid {
+      display: grid;
+      grid-template-columns: repeat(3,minmax(0,1fr));
+      grid-template-rows:repeat(2,auto);
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem 3rem;
+    }
+
+    .donor-card {
+      background-color: #fff;
+      border-radius: 15px;
+      padding: 1.5rem;
+      text-align: left;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      height:auto;
+    }
+
+    .donor-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .image-wrapper {
+  background-color:#ffdce3; /* or your chosen color */
+  padding: 0;
+  height: 265px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  margin-bottom: 1rem;
+  border-radius: 15px 15px 15px 15px;;
+  overflow:hidden;
+  position:relative;
+}
+
+.image-wrapper img {
+  max-height: 102%;
+  max-width: auto;
+  width:auto;
+  object-fit: contain;
+  display:block;
+  margin-bottom:-10px;
+  margin-top:-10px;
+}
+    .donor-card h3 {
+      margin: 0.5rem 0;
+      font-size: 1.2rem;
+      color: #46245e;
+      text-align:center;
+    }
+
+    .donor-card p {
+      margin: 0.4rem 0;
+      font-size: 0.95rem;
+    }
+
+    .donor-card blockquote {
+      display:block;
+      margin-top: 0.5rem;
+      margin-bottom:0;
+      padding-bottom:0;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: #666;
+      text-align:left !important;
+    }
+
+    /* ===== Responsive adjustments ===== */
+    @media (max-width: 600px) {
+      .donor-header {
+        border-radius: 40px 40px 0 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+    
+    @media (max-width: 768px) {
+  .donor-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .donor-card {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .image-wrapper {
+    height: 200px;
+  }
+
+  .donor-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .donor-header p {
+    font-size: 1rem;
+  }
+}
+ /* Login Modal Background */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+/* Login Modal Box */
+.modal-content {
+  background:white;
+  margin: 8% auto;
+  padding: 30px 25px;
+  border-radius: 13px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  box-shadow: 0 0 20px rgba(25, 8, 72, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* X Close Button */
+.close-button {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.close-button:hover {
+  color: #e1582e;
+}
+
+/* Centered Header */
+.modal-content .form-header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.modal-content .form-header h2 {
+  margin: 10px 0 0;
+  color: #190848;
+  font-size: 24px;
+}
+
+.modal-content .form-header .form-icon {
+  font-size: 32px;
+  color: #190848;
+}
+
+/* Login Form Inputs */
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.modal-content .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content .form-group label {
+  font-weight: 600;
+  color: #190848;
+  margin-bottom: 6px;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="password"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  background: #fff;
+}
+
+/* Login Button */
+.modal-content .btn-primary {
+  background-color: #e1582e;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  margin-top: 10px;
+}
+
+.modal-content .btn-primary:hover {
+  background-color: #190848;
+}
+
+/* Sign up link text */
+.modal-content p {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}
+
+.modal-content a {
+  color: #e1582e;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.modal-content a:hover {
+  color: #190848;
+}
+
+
+/* Close (X) Button */
+.close-button {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.close-button:hover {
+  color: #e1582e;
+}
+@media (max-width: 600px) {
+  .modal-content {
+    width: 95%;
+    padding: 20px 15px;
+    max-width: 350px;
+  }
+
+  .modal-content .form-header h2 {
+    font-size: 20px;
+  }
+
+  .modal-content .form-header .form-icon {
+    font-size: 28px;
+  }
+
+  .modal-content input[type="text"],
+  .modal-content input[type="password"] {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .modal-content .btn-primary {
+    padding: 10px;
+    font-size: 15px;
+  }
+
+  .modal-content p {
+    font-size: 13px;
+  }
+
+  .close-button {
+    font-size: 22px;
+    top: 10px;
+    right: 14px;
+  }
+}

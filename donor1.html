@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Be a Donor | NourishAll</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="donor1.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Honk&family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body style="font-family: 'Montserrat', sans-serif;">
+
+    <nav class="main-navbar">
+  <div class="logo-container">
+    <img style="background-color: transparent !important;" src="logo1.png" alt="Logo" class="logo-img margin-right=6px" />
+    
+  </div>
+  
+  <div class="nav-links">
+    <a href="./index.html">Home</a>
+    <a href="./about2.html">About Us</a>
+    <a href="./contact.html">Contact</a>
+    <a href="./wallOfDonor.html">Donors</a>
+    <a href="#" onclick="openLoginModal(); return false;">Login</a>
+  </div>
+</nav>
+  </nav>
+  <!-- Top Banner with Background Image -->
+  <section class="hero-banner text-center d-flex flex-column justify-content-center align-items-center">
+    <h1 class="display-5 fw-bold">Choose How You’d Like to Contribute</h1>
+    <p class="lead">Every act of kindness counts — support with love, food, or time.</p>
+  </section>
+
+  <!-- 3-column section for donation types -->
+  <section class="container-fluid text-center py-5" style="background-color:white">
+    <div class="row g-4">
+      <!-- Money -->
+      <div class="col-md-4">
+        <div class="donate-box">
+        <img src="https://e7.pngegg.com/pngimages/413/169/png-clipart-computer-icons-funding-charitable-organization-funding-donation-logo-thumbnail.png" width="90" height="90" class="rounded-circle mb-3" alt="Donate Money">
+        <h4>Donate Money</h4>
+        <p>Uplift Lives Beyond Hunger</p>
+        <button class="btn btn-outline-dark" onclick="window.open('donate.html', '_blank')">Donate Now</button>
+
+
+        </div>
+      </div>
+
+      <!-- Food -->
+      <div class="col-md-4">
+        <div class="donate-box">
+        <img src="https://cdn-icons-png.flaticon.com/512/8449/8449978.png" width="90" height="90" class="rounded-circle mb-3" alt="Donate Food">
+        <h4>Donate Food</h4>
+        <p>A Little Food, A Lot of Good</p>
+        <button class="btn btn-outline-dark" onclick="window.open('food.html', '_blank')">Share Food</button>
+
+        </div>
+      </div>
+
+      <!-- Slot Booking -->
+      <!-- Celebrate & Contribute -->
+    <div class="col-md-4">
+        <div class="donate-box">
+        <img src="https://www.freeiconspng.com/uploads/volunteer-icon-14.png" width="90" height="90" class="rounded-circle mb-3" alt="Contribute on Special Days">
+        <h4>Honor the Day</h4>
+        <p>Mark the Moment with Meaning</p>
+        <button onclick="openSlotModal()" class="btn btn-outline-dark">Get Started</button>
+
+        </div>
+    </div>
+
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+  function openSlotModal() {
+    document.getElementById('slotModal').style.display = 'flex';
+  }
+
+  function closeSlotModal() {
+    document.getElementById('slotModal').style.display = 'none';
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector("#slotModal form");
+  const toastLive = document.getElementById("successToast");
+  const toastBootstrap = new bootstrap.Toast(toastLive);
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); // Prevent page reload
+    toastBootstrap.show(); // Show styled toast alert
+    closeSlotModal(); // Close the booking modal
+    form.reset(); // Clear the form fields
+  });
+});
+
+</script>
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="successToast" class="toast align-items-center text-bg-success border-0" role="alert">
+    <div class="d-flex">
+      <div class="toast-body">
+        🎉 Your slot has been successfully booked!
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+</div>
+ <!-- Login Modal -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close-button" onclick="closeLoginModal()">&times;</span>
+    <div class="form-header">
+      <h2>Login</h2>
+    </div>
+    <form>
+      <div class="form-group">
+        <label for="loginEmail">Email or Username</label>
+        <input type="text" id="loginEmail" name="loginEmail" required />
+      </div>
+      <div class="form-group">
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" name="loginPassword" required />
+      </div>
+      <button type="submit" class="btn btn-primary btn-full">Login</button>
+    </form>
+    <p style="margin-top: 15px;">Don't have an account? <a href="./signup.html">Click Sign Up</a></p> 
+  </div>
+</div>
+<script>
+  function openLoginModal() {
+    document.getElementById("loginModal").style.display = "block";
+  }
+
+  function closeLoginModal() {
+    document.getElementById("loginModal").style.display = "none";
+  }
+
+  // Close the modal if clicked outside
+  window.onclick = function(event) {
+    const modal = document.getElementById("loginModal");
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+</script>
+<footer class="footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>NourishAll</h3>
+        <p style=color:#190848;font-size:15px;>We strive to eliminate hunger and ensure no food is wasted. Join us in making a difference.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Permalinks</h3>
+        <ul >
+          <li><a href="#">Home</a></li>
+          <li><a href="./donor1.html">Donate</a></li>
+          <li><a href="./about2.html">About us</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Privacy</h3>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+          <li><a href="#">Refund Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Contact Us</h3>
+        <p>📞 +91 900234156</p>
+        <p>📧 nourishall@example.com</p>
+        <br>
+        <!-- social -->
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <hr>
+      <p>&copy; 2025 NourishAll. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+
+
+
+<!-- Slot Booking Modal -->
+<!-- Slot Modal -->
+<div id="slotModal" class="modal-overlay">
+  <div class="booking-card">
+
+    <span class="close-button" onclick="closeSlotModal()">&times;</span>
+
+    <!-- Left Panel -->
+    <div class="left-panel">
+        <img src="https://i0.wp.com/thechampatree.in/wp-content/uploads/2019/05/whats-so-special-about-indian-birthday-parties-01.jpg?ssl=1" alt="Celebrate with love" />
+    </div>
+
+    <!-- Right Panel -->
+    <div class="right-panel">
+        <div class="form-container">
+          <form>
+            <h2 style="color:#ff6600; font-family:'Playfair Display', serif;">Book a Visit</h2>
+
+            <label for="occasion">Occasion</label>
+            <select id="occasion" required>
+              <option value="">-- Select Occasion --</option>
+              <option>Birthday</option>
+              <option>Anniversary</option>
+              <option>Memory Day</option>
+              <option>Other</option>
+            </select>
+
+            <label for="location">Preferred Orphanage</label>
+            <input type="text" id="location" required />
+
+            <label for="date">Preferred Date</label>
+            <input type="date" id="date" required />
+
+            <label for="time">Preferred Time Slot</label>
+            <select id="time" required>
+              <option value="">-- Select Time --</option>
+              <option>Morning (9 AM – 12 PM)</option>
+              <option>Afternoon (1 PM – 4 PM)</option>
+              <option>Evening (5 PM – 7 PM)</option>
+            </select>
+
+            <label for="message">Message (Optional)</label>
+            <textarea id="message" rows="3"></textarea>
+
+            <button type="submit">Confirm Slot</button>
+          </form>
+        </div>
+      </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+</html>

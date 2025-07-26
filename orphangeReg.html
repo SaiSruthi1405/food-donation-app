@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Orphanage Registration</title>
+   <link rel="stylesheet"  href="orphangeReg.css"/>
+</head>
+<body>
+
+  <section class="donate-section">
+    <div class="container">
+      <div class="form-container">
+        <div class="form-header">
+          <span class="form-icon"></span>
+          <h1>Orphanage Registration</h1>
+          <p>Register your orphanage to join our dashboard</p>
+        </div>
+
+        <form action="#" method="post" enctype="multipart/form-data">
+          <!-- Orphanage Name & Phone -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="orphanageName">Orphanage Name</label>
+              <input type="text" id="orphanageName" name="orphanageName" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" required>
+            </div>
+          </div>
+
+          <!-- Registration ID & Year of Establishment -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="registrationId">Registration ID</label>
+              <input type="text" id="registrationId" name="registrationId" required>
+            </div>
+            <div class="form-group">
+              <label for="establishmentYear">Year of Establishment</label>
+              <input type="text" id="establishmentYear" name="establishmentYear" required>
+            </div>
+          </div>
+
+          <!-- Email & Address -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="text" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="address">Address</label>
+              <textarea id="address" name="address" rows="3" required></textarea>
+            </div>
+          </div>
+
+          <!-- State & No. of Children -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="state">State</label>
+              <input type="text" id="state" name="state" required>
+            </div>
+            <div class="form-group">
+              <label for="childrenCount">No. of Children Staying</label>
+              <input type="text" id="childrenCount" name="childrenCount" required>
+            </div>
+          </div>
+
+          <!-- No. of Adults & Certificate Upload -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="adultsCount">No. of Adults Staying</label>
+              <input type="text" id="adultsCount" name="adultsCount" required>
+            </div>
+            <div class="form-group">
+              <label for="certificateUpload">Registration Certificate (PDF/Image)</label>
+              <input type="file" id="certificateUpload" name="certificateUpload" accept=".pdf,.jpg,.jpeg,.png" required>
+            </div>
+          </div>
+
+          <!-- Orphanage Photo -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="orphanagePhoto">Orphanage Photo</label>
+              <input type="file" id="orphanagePhoto" name="orphanagePhoto" accept=".jpg,.jpeg,.png" required>
+            </div>
+          </div>
+
+          <!-- Declaration -->
+          <div class="form-row">
+            <div class="form-group">
+              <label>
+                <input type="checkbox" name="declaration" required>
+                I confirm that the above information is true and accurate.
+              </label>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="form-row">
+            <button type="submit" class="btn btn-primary btn-full">Register</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

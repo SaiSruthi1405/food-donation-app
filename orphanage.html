@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Orphanage Dashboard</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="orphanage.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Honk&family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="main-navbar">
+    <div class="logo" style="font-family: 'Outfit', sans-serif; font-size: 2rem;"> NourishAll</div>
+    <div class="nav-links" style="font-size:20px;">
+      <a href="./index.html">Home</a>
+      <a href="./about2.html">About Us</a>
+      <a href="./contact.html">Contact</a>
+      <a href="./wallOfDonor.html">Donors</a>
+      <a href="#"onclick="openLoginModal(); return false;">Login</a>
+    </div>
+  </nav>
+    <div class="dashboard">
+    <!-- ========== Sidebar Filters ========== -->
+    <form class="filter-section" id="filterForm">
+      <div class="filter-group">
+        <label for="searchName">Search by Name</label>
+        <input type="text" id="searchName" placeholder="Enter orphanage name" />
+      </div>
+
+      <div class="filter-group">
+        <label for="citySelect"> City</label>
+        <select id="citySelect">
+          <option value="">All Cities</option>
+          <option>Telangana</option>
+          <option>Andhra Pradesh</option>
+          <option>Karnataka</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label>Type of Care</label>
+        <label><input type="checkbox" name="type" value="children" /> Children</label>
+        <label><input type="checkbox" name="type" value="elderly" /> Elderly</label>
+        <label><input type="checkbox" name="type" value="both" /> Both</label>
+      </div>
+
+      <div class="filter-group">
+        <label for="residentRange"> No. of Residents</label>
+        <input type="range" id="residentRange" min="0" max="500" step="10" value="0" />
+        <span id="residentValue">100+</span>
+      </div>
+
+      <div class="filter-group">
+        <label> Needs Food Today?</label>
+        <label><input type="radio" name="needsFood" value="" checked /> Any</label>
+        <label><input type="radio" name="needsFood" value="true" /> Yes</label>
+        <label><input type="radio" name="needsFood" value="false" /> No</label>
+      </div>
+
+      <div class="filter-actions">
+        <button type="submit" class="apply-btn">Apply</button>
+        <button type="reset" class="reset-btn">Reset</button>
+      </div>
+    </form>
+
+    <!-- ========== Main Content / Cards ========== -->
+    <div class="content">
+      <div class="card-grid" id="cardGrid"></div>
+    </div>
+  </div>
+
+  <script>
+    /* ---- Sample Data ---- */
+    const data = [
+      {
+        id: 1,
+        name: "Hope Children's Home",
+        images: [
+      "./assets/hope1.png",
+      "./assets/hope10.png",
+      "./assets/hope20.png"
+    ],
+        children: 250,
+        elderly: 0,
+        city: "Telangana",
+        type: "children",
+        residents: 250,
+        needsFood: true,
+        address: "Road no:3,Jubliee Hills,Hyderabad,Telangana",
+        contact: "+91-9876543210",
+        description: "Provides shelter, food, and education to children and elderly residents. Established in 1998 with a mission to create a loving home."
+      },
+      {
+        id: 2,
+        name: "SOS Chidren's Village",
+        images:  [
+      "./assets/sos.png",
+      "./assets/sos1.png",
+      "./assets/sos2.png"
+    ],
+        children: 450,
+        elderly: 0,
+        city: "Telangana",
+        type: "children",
+        residents:450,
+        needsFood: true,
+        address: "22 Rainbow Road, Hyderabad",
+        contact: "+91-9988776655",
+        description: "Focuses on holistic child development with schooling, arts, and sports facilities."
+      },
+      {
+        id: 3,
+        name: "Smile Foundation",
+        images: [
+      "./assets/smile.png",
+      "./assets/smile1.png",
+      "./assets/smile2.png"
+    ],
+        children: 200,
+        elderly: 350,
+        city: "Karnataka",
+        type: "both",
+        residents: 550,
+        needsFood: true,
+        address: "7 Peace Ave,R.R Nagar ,Karanataka",
+        contact: "+91-9123456780",
+        description: "Providing a loving home and brighter future for underprivileged children."
+      },
+      {
+        id: 4,
+        name: "Child Fund",
+        images:[
+      "./assets/childfund.png",
+      "./assets/childfund1.png",
+      "./assets/childfund2.png"
+    ],
+        children: 500,
+        elderly: 0,
+        city: "Karnataka",
+        type: "children",
+        residents: 500,
+        needsFood: false,
+        address: "44 Church Street, Banglore,Karnataka",
+        contact: "+91-9000456000",
+        description: "Dedicated to senior citizens, offering medical care and recreational activities."        
+      },
+      {
+        id: 5,
+        name: "World Vision",
+        images:  [
+      "./assets/worldVision.png",
+      "./assets/worldVision1.png",
+      "./assets/worldVision2.png"
+    ],
+        children: 0,
+        elderly: 360,
+        city: "Andhra Pradesh",
+        type: "both",
+        residents: 30,
+        needsFood: false,
+        address: "Telephone Colony,Vizag, Andhra Pradesh",
+        contact: "+91-9000867473",
+        description: "Community‑supported home aiming to empower every resident through education and mentorship."        
+      },
+      {
+        id: 6,
+        name: "Save The Children",
+        images:  [
+      "./assets/Savethechildren.png",
+      "./assets/Savethechildren1.png",
+      "./assets/Savethechildren2.png"
+    ],
+        children: 800,
+        elderly: 0,
+        city: "Telangana",
+        type: "children",
+        residents: 30,
+        needsFood: false,
+        address: "Road no 5,L.B Nagar,Hyderabad,Telangana",
+        contact: "+91-9006654500",
+        description: "Nurturing every child with dignity, compassion, and purpose.Dedicated to raising confident, educated, and happy children. "        
+      },
+      {
+        id: 7,
+        name: "Children Rights and You",
+        images:  [
+      "./assets/cry.png",
+      "./assets/cry1.png",
+      "./assets/cry2.png"
+    ],
+        children: 400,
+        elderly: 0,
+        city: "Andhra Pradesh",
+        type: "children",
+        residents: 30,
+        needsFood: false,
+        address: "Grand Trunck Road,Nellore,Andhra Pradesh",
+        contact: "+91-9007564980",
+        description: "Building better tomorrows for orphaned and abandoned kids.."        
+      },
+      {
+        id: 8,
+        name: "Snehalaya",
+        images:  [
+      "./assets/sneha.png",
+      "./assets/sneha1.png",
+      "./assets/sneha2.png"
+    ],
+        children: 0,
+        elderly: 450,
+        city: "Telangana",
+        type: "elderly",
+        residents: 30,
+        needsFood: false,
+        address: "Nadergul,Ranga Reddy,Telangana",
+        contact: "+91-906567087",
+        description: "This center provides a warm, safe environment where the elderly are cared for, supported, and empowered to live meaningful lives"        
+      },
+      {
+        id: 9,
+        name: "Udyan",
+        images:  [
+      "./assets/udyan.png",
+      "./assets/udyan1.png",
+      "./assets/udyan2.png"
+    ],
+        children: 400,
+        elderly: 100,
+        city: "Andhra Pradesh",
+        type: "both",
+        residents: 500,
+        needsFood: false,
+        address: "Raghuveera Towers,Ananthapur, Andhra Pradesh",
+        contact: "+91-90087568908",
+        description: "More than just a shelter — it’s a family. This home fosters intergenerational care, ensuring every child and elder receives love and attention."        
+      },
+      {
+        id: 10,
+        name: "Ashray-Akruti ",
+        images:  [
+      "./assets/ashray.png",
+      "./assets/ashray1.png",
+      "./assets/ashray2.png"
+    ],
+        children: 600,
+        elderly: 0,
+        city: "Karnataka",
+        type: "children",
+        residents: 30,
+        needsFood: false,
+        address: "vanasthalipuram,Mysore, Karnataka",
+        contact: "+91-9766465409",
+        description: "Providing not only food and shelter but also emotional connection and lifelong support to those at both ends of life’s journey."        
+      }
+    ];
+
+    const cardGrid = document.getElementById("cardGrid");
+
+    /* ---- Card Builder ---- */
+    function createCard(item) {
+      return `
+      <div class="orphanage-card" >
+        <div class="carousel" data-id="${item.id}" data-index="0" data-total="${item.images.length}">
+        <button style="color:black; background:none;" class="control prev" da6a-action="prev">&#10094;</button>
+        <img style="height:200px;width:900px;object-fit:contain;display:block;margin:0 auto;max-width:100%;" src="${item.images[0]}" class="carousel-img" alt="${item.name}">
+        <button style="color:black; background:none;" class="control next" data-action="next">&#10095;</button>
+      </div>
+        <div class="orphanage-content">
+          <h2 class="orphanage-name">${item.name}</h2>
+          <div class="stats">
+            <p><i class="fas fa-child"></i> <strong>Children:</strong> ${item.children}</p>
+            <p><i class="fas fa-blind"></i> <strong>Elders:</strong> ${item.elderly}</p>
+          </div>
+          <p class="basic-info"><i class="fas fa-map-marker-alt"></i> ${item.address}</p>
+
+          <div class="food-status">
+            <label>🍱 Needs Food Today?</label>
+            <label style="color:#e1582e;" class="switch">
+              <input type="checkbox" ${item.needsFood ? "checked" : ""} disabled />
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <button class="view-more-btn" data-id="${item.id}">View More</button>
+          <div class="extra-info" id="extra-${item.id}">
+            <p><i class="fas fa-phone"></i> ${item.contact}</p>
+            <p><strong>Residents:</strong> ${item.residents}</p>
+            <p><strong>Type:</strong> ${item.type.charAt(0).toUpperCase() + item.type.slice(1)}</p>
+            <p>${item.description}</p>
+          </div>
+        </div>
+      </div>`;
+    }
+    function renderCards(list) {
+    cardGrid.innerHTML = list.map(createCard).join("");
+    }
+    renderCards(data);
+
+    /* ---- Slider live value ---- */
+    const residentRange = document.getElementById("residentRange");
+    const residentValue = document.getElementById("residentValue");
+    residentRange.addEventListener("input", () => {
+      residentValue.textContent = residentRange.value + "+";
+    });
+
+    /* ---- Filter Logic ---- */
+    document.getElementById("filterForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const nameQ = document.getElementById("searchName").value.trim().toLowerCase();
+      const cityQ = document.getElementById("citySelect").value;
+      const minResidents= +residentRange.value;
+      const needsFoodQ = document.querySelector("input[name='needsFood']:checked").value;
+      const typesQ = Array.from(document.querySelectorAll("input[name='type']:checked")).map(cb => cb.value);
+
+      const filtered = data.filter(o => {
+        if (nameQ && !o.name.toLowerCase().includes(nameQ)) return false;
+        if (cityQ && o.city !== cityQ) return false;
+        if (o.residents < minResidents) return false;
+        if (needsFoodQ) {
+          const boolVal = needsFoodQ === "true";
+          if (o.needsFood !== boolVal) return false;
+        }
+        if (typesQ.length && !typesQ.includes(o.type)) return false;
+        return true;
+      });
+      renderCards(filtered);
+    });
+
+    /* ---- Reset Logic ---- */
+    document.getElementById("filterForm").addEventListener("reset", () => {
+      setTimeout(() => {
+        residentValue.textContent = residentRange.value + "+";
+        renderCards(data);
+      }, 0);
+    });
+
+    /* ---- View More toggle ---- */
+    cardGrid.addEventListener("click", (e) => {
+  // Handle image carousel navigation
+  if (e.target.classList.contains("control")) {
+    const carousel = e.target.closest(".carousel");
+    const id = +carousel.dataset.id;
+    const orphanage = data.find(d => d.id === id);
+    let index = +carousel.dataset.index;
+
+    // Determine next or previous index
+    index = e.target.dataset.action === "next"
+      ? (index + 1) % orphanage.images.length
+      : (index - 1 + orphanage.images.length) % orphanage.images.length;
+
+    // Update carousel image and index
+    carousel.dataset.index = index;
+    carousel.querySelector(".carousel-img").src = orphanage.images[index];
+    return;
+  }
+
+  // Handle view more / view less toggle
+  if (e.target.classList.contains("view-more-btn")) {
+    const id = e.target.dataset.id;
+    const extraInfo = document.getElementById("extra-" + id);
+    const isVisible = extraInfo.style.display === "block";
+
+    // Toggle display
+    extraInfo.style.display = isVisible ? "none" : "block";
+    e.target.textContent = isVisible ? "View More" : "View Less";
+  }
+});
+  </script>
+  <!-- Login Modal -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close-button" onclick="closeLoginModal()">&times;</span>
+    <div class="form-header">
+      <h2>Login</h2>
+    </div>
+    <form>
+      <div class="form-group">
+        <label for="loginEmail">Email or Username</label>
+        <input type="text" id="loginEmail" name="loginEmail" required />
+      </div>
+      <div class="form-group">
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" name="loginPassword" required />
+      </div>
+      <button type="submit" class="btn btn-primary btn-full">Login</button>
+    </form>
+    <p style="margin-top: 15px;">Don't have an account? <a href="./orphangeReg.html">Click Sign Up</a></p> 
+  </div>
+</div>
+<script>
+  function openLoginModal() {
+    document.getElementById("loginModal").style.display = "block";
+  }
+
+  function closeLoginModal() {
+    document.getElementById("loginModal").style.display = "none";
+  }
+
+  // Close the modal if clicked outside
+  window.onclick = function(event) {
+    const modal = document.getElementById("loginModal");
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+</script>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>NourishAll</h3>
+        <p style=color:#190848;font-size:15px;>We strive to eliminate hunger and ensure no food is wasted. Join us in making a difference.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Permalinks</h3>
+        <ul >
+          <li><a href="#">Home</a></li>
+          <li><a href="./donate.html">Donate</a></li>
+          <li><a href="./about2.html">About us</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Privacy</h3>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+          <li><a href="#">Refund Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Contact Us</h3>
+        <p>📞 +91 900234156</p>
+        <p>📧 nourishall@example.com</p>
+
+        <!-- Email us form -->
+        <form class="footer-email" action="#" method="POST">
+          <input type="email" name="email" placeholder="Your email address" required>
+          <button type="submit"><i class="fas fa-paper-plane"></i></button>
+        </form>
+        <br>
+        <!-- social -->
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <hr>
+      <p>&copy; 2025 NourishAll. All rights reserved.</p>
+    </div>
+  </footer>
+  </footer>
+</body>
+</html>
